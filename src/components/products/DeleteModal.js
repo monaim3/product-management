@@ -7,7 +7,6 @@ export default function DeleteModal({ isOpen, onClose, onConfirm, product, isDel
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in"
         onClick={onClose}
@@ -15,7 +14,6 @@ export default function DeleteModal({ isOpen, onClose, onConfirm, product, isDel
 
       {/* Modal */}
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full animate-scale-in">
-        {/* Header */}
         <div className="flex items-start justify-between p-6 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
