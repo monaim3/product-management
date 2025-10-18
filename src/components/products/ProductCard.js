@@ -21,7 +21,6 @@ export default function ProductCard({ product, onDelete }) {
 
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-      {/* Image Container */}
       <div 
         className="relative h-56 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden cursor-pointer"
         onClick={() => router.push(`/products/${product.slug}`)}
@@ -39,7 +38,6 @@ export default function ProductCard({ product, onDelete }) {
           </div>
         )}
         
-        {/* Category Badge */}
         {product.category && (
           <div className="absolute top-3 left-3">
             <span className="px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-medium text-gray-700 rounded-full shadow-sm">
@@ -48,13 +46,9 @@ export default function ProductCard({ product, onDelete }) {
           </div>
         )}
 
-        {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
       </div>
-
-      {/* Content */}
       <div className="p-5">
-        {/* Product Name */}
         <h3 
           className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors"
           onClick={() => router.push(`/products/${product.slug}`)}
@@ -62,12 +56,11 @@ export default function ProductCard({ product, onDelete }) {
           {product.name}
         </h3>
 
-        {/* Description */}
+  
         <p className="text-sm text-gray-600 mb-4 line-clamp-2 min-h-[40px]">
           {product.description || 'No description available'}
         </p>
 
-        {/* Price & Actions */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="flex flex-col">
             <span className="text-xs text-gray-500 font-medium">Price</span>
@@ -80,14 +73,14 @@ export default function ProductCard({ product, onDelete }) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => router.push(`/products/${product.slug}`)}
-              className="p-2 hover:bg-blue-50 text-blue-600 rounded-lg transition-colors group/btn"
+              className="p-2 hover:bg-blue-50 text-blue-600 rounded-lg transition-colors group/btn cursor-pointer"
               title="View Details"
             >
               <Eye className="w-5 h-5" />
             </button>
             <button
               onClick={() => router.push(`/products/${product.slug}/edit`)}
-              className="p-2 hover:bg-green-50 text-green-600 rounded-lg transition-colors group/btn"
+              className="p-2 hover:bg-green-50 text-green-600 rounded-lg transition-colors group/btn cursor-pointer"
               title="Edit Product"
             >
               <Edit className="w-5 h-5" />
@@ -105,3 +98,5 @@ export default function ProductCard({ product, onDelete }) {
     </div>
   );
 }
+
+

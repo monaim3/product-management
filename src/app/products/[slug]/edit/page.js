@@ -8,7 +8,7 @@ import ProductForm from "@/components/products/ProductForm";
 
 export default function EditProductPage() {
   const params = useParams();
-  const slug = params?.slug; // dynamically retrieved from URL
+  const slug = params?.slug;
   const dispatch = useDispatch();
 
   const { currentProduct, loading, error } = useSelector(

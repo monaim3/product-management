@@ -1,5 +1,3 @@
-// src/utils/validation.js
-
 export const validateProduct = (productData) => {
   const errors = {};
 
@@ -30,7 +28,6 @@ export const validateProduct = (productData) => {
   return errors;
 };
 
-// ✅ Helper function to check if there are any validation errors
 export const isValidProduct = (productData) => {
   const errors = validateProduct(productData);
   return Object.keys(errors).length === 0;

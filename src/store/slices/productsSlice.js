@@ -2,8 +2,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { productsAPI } from '@/services/api';
 
-// ---------------- Async thunks ----------------
-
 // Get products
 export const getProducts = createAsyncThunk(
   'products/getProducts',
@@ -55,7 +53,6 @@ export const createProductAsync = createAsyncThunk(
     }
   }
 );
-// ---------------- Get Product by ID ----------------
 // ---------------- Get Product by Slug ----------------
 export const getProductBySlug = createAsyncThunk(
   'products/getProductBySlug',
@@ -83,7 +80,7 @@ export const updateProductAsync = createAsyncThunk(
   }
 );
 
-// ---------------- Slice ----------------
+// ------ Slice ---------
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
@@ -165,11 +162,11 @@ const productsSlice = createSlice({
 
 
       // ---------------- Delete Product ----------------
-      .addCase(removeProduct.fulfilled, (state, action) => {
-        state.items = state.items.filter((item) => item.id !== action.payload);
-        state.searchResults = state.searchResults.filter((item) => item.id !== action.payload);
-        state.lastFetch = null; // invalidate cache
-      })
+     .addCase(removeProduct.fulfilled, (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+      state.searchResults = state.searchResults.filter((item) => item.id !== action.payload);
+      state.lastFetch = null; // invalidate cache
+    })
 
       // ---------------- Create Product ----------------
       .addCase(createProductAsync.pending, (state) => {

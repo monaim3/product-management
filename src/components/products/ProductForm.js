@@ -9,24 +9,23 @@ import { useRouter } from "next/navigation";
 export default function ProductForm({ initialData, onSuccess }) {
   const dispatch = useDispatch();
   const router = useRouter();
-  // Initial form state
+
   const [form, setForm] = useState({
     name: initialData?.name || "",
     price: initialData?.price || "",
     description: initialData?.description || "",
-    images: initialData?.images?.[0] || "", // Single input for simplicity
+    images: initialData?.images?.[0] || "", 
     categoryId: initialData?.category?.id || "",
   });
 
   const [formErrors, setFormErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // Handle input changes
+
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Validate fields
   const validate = () => {
     const errors = {};
     if (!form.name) errors.name = "Name is required";
@@ -48,11 +47,10 @@ export default function ProductForm({ initialData, onSuccess }) {
 
     setLoading(true);
 
-    // Prepare final payload
     const payload = {
       name: form.name,
       description: form.description,
-      images: [form.images], // Convert string to array
+      images: [form.images], 
       price: Number(form.price),
       categoryId: form.categoryId,
     };
@@ -66,7 +64,6 @@ export default function ProductForm({ initialData, onSuccess }) {
         await dispatch(createProductAsync(payload)).unwrap();
         toast.success("Product created successfully!");
         router.push("/products");
-        // Reset form after creation
         setForm({
           name: "",
           price: "",
@@ -137,7 +134,6 @@ export default function ProductForm({ initialData, onSuccess }) {
         {formErrors.images && <p className="text-red-500">{formErrors.images}</p>}
       </div>
 
-      {/* Category ID */}
       <div>
         <label className="block text-sm font-medium">Category ID *</label>
         <input

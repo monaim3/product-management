@@ -11,12 +11,9 @@ export default function ProtectedRoute({ children }) {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    // Try to restore session from localStorage
     if (!token) {
       dispatch(restoreSession());
     }
-
-    // Check if token exists in localStorage
     const storedToken = localStorage.getItem('token');
     
     if (!storedToken) {
@@ -24,7 +21,6 @@ export default function ProtectedRoute({ children }) {
     }
   }, [token, dispatch, router]);
 
-  // Show loading spinner while checking auth
   if (!isAuthenticated && !localStorage.getItem('token')) {
     return (
       <div className="min-h-screen flex items-center justify-center">
