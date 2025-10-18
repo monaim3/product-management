@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductBySlug, removeProduct } from "@/store/slices/productsSlice";
 import { toast } from "react-hot-toast";
 import { Edit, Trash, ArrowLeft, Tag, DollarSign, Info, Image as ImageIcon } from "lucide-react";
+import Loading from "@/components/Loading";
 
 export default function ProductDetailsDashboard() {
   const { slug } = useParams();
@@ -34,9 +35,7 @@ export default function ProductDetailsDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#EFF1F3" }}> <div className="text-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-b-4 mx-auto mb-4" style={{ borderColor: "#4E6E5D" }}></div>
-        <p className="text-lg font-medium" style={{ color: "#4E6E5D" }}>Loading product...</p> </div> </div>
+      <Loading />
     );
   }
 
